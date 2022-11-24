@@ -17,22 +17,24 @@ const CHANNEL = sessionStorage.getItem('room')
 
 -----
 
-1). createClient - 
+### 1). createClient - 
 >> Creates a local client object for managing a call. </br>
 >> This is usually the first step of using the Agora Web SDK.</br>
 >> The mode and codec properties are required.</br>
 </br>
 </br>
-2). 
-store local user audio and video tracks
-store remote users audio and video tracks
 
+### 2). 
+* store local user audio and video tracks
+* store remote users audio and video tracks
+```
 let localTracks = []
 let remoteUsers = []
+```
 </br>
 </br>
 
-3). 
+### 3). 
 
 > each time when a new user joins we make a player for him, we do this dynamically using js
 
@@ -67,8 +69,8 @@ unique for every player
 * other users can get these values, so we publish it
 * now anybody in the channel can access to these
 
-localTracks[0] -- audio track
-localTracks[1] -- video track
+>> localTracks[0] -- audio track
+   localTracks[1] -- video track
 
 * other people to also see it, now anybody in this channel is having access to these values
 ```
@@ -100,19 +102,19 @@ console.log("User has joined")
  * add it to the DOM
  * play the video
  * then play audio
------------------------
-Handle left Users
 
+### 6). Handle left Users
+
+```
 let handleUserLeft = async(user) =>{
     delete remoteUsers[user.uid]
     document.getElementById(`user-container-${user.uid}`).remove()
 }
-------------
+```
 
- 
-Adding controls
+### 7). Adding controls
 
-
+```
  <section id="controls-wrapper">
         <div class="icon-wrapper">
             <img class="control-icon" id="mic-btn" src="{% static 'images/microphone.svg' %}" />
@@ -126,19 +128,18 @@ Adding controls
             <img class="control-icon" id="leave-btn" src="{% static 'images/leave.svg' %}" />
         </div>
     </section>
+```
 
+>>> redirect user to same page - 
+    window.open('/', '_self')
 
-redirect user to same page - 
-window.open('/', '_self')
+### What's next=>
+* till now we have been working with temporary token, but now we will generate these tokens dynamically
 
------------------------
-till now
-we have been working with temporary token, but now we will generate these tokens dynamically
+* we want our users to crate their own channel and join different channels as they are free to navigate through our site
 
-we want our users to crate their own channel and join different channels as they are free to navigate through our site
+* we handle this using backend-
+* we gonna have a view and an endpoint
 
-we handle this using backend-
-we gonna have a view and an endpoint
-
- we will use a package and whenever user enter app_id, channel => a token is automatically generated for him
+ * we will use a package and whenever user enter app_id, channel => a token is automatically generated for him
 [agora token builder](https://pypi.org/project/agora-token-builder/)
