@@ -47,16 +47,14 @@ let player = `<div  class="video-container" id="user-container-${UID}">
     document.getElementById('video-streams').insertAdjacentHTML("beforeend", player)    
 ```
 
-```
-class="video-container"
-```
+
+>> class="video-container"
 
 common to all player => will write the css and other stuffs which are common to all players
 </br>
-</br>
-```
-id="user-container-${UID}
-```
+
+>> id="user-container-${UID}
+
 unique for every player 
 </br>
 </br>
