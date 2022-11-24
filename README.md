@@ -21,7 +21,9 @@ const CHANNEL = sessionStorage.getItem('room')
 >> Creates a local client object for managing a call. </br>
 >> This is usually the first step of using the Agora Web SDK.</br>
 >> The mode and codec properties are required.</br>
-</br>
+```
+const client = AgoraRTC.createClient({mode:'rtc', codec:'vp8'})'
+```
 </br>
 
 ### 2). 
