@@ -139,7 +139,7 @@ let handleUserLeft = async(user) =>{
 ### 8). get_or_create()
 
 
-> Returns a tuple of (object, created), where object is the retrieved or created object and created is a boolean specifying whether a new object was created.
+> Returns a tuple of (object, created), where object is the retrieved or created object and created is a boolean specifying whether a new object was created.</br>
 > This is meant to prevent duplicate objects from being created when requests are made in parallel, and as a shortcut to boilerplatish code. For example:
 
 ```
