@@ -133,3 +133,28 @@ let handleUserLeft = async(user) =>{
 
  * we will use a package and whenever user enter app_id, channel => a token is automatically generated for him
 [agora token builder](https://pypi.org/project/agora-token-builder/)
+
+
+
+### 8). get_or_create()
+
+
+> Returns a tuple of (object, created), where object is the retrieved or created object and created is a boolean specifying whether a new object was created.
+> This is meant to prevent duplicate objects from being created when requests are made in parallel, and as a shortcut to boilerplatish code. For example:
+
+```
+try:
+    obj = Person.objects.get(first_name='John', last_name='Lennon')
+except Person.DoesNotExist:
+    obj = Person(first_name='John', last_name='Lennon', birthday=date(1940, 10, 9))
+    obj.save()
+```   
+    
+> Here, with concurrent requests, multiple attempts to save a Person with the same parameters may be made. To avoid this race condition, the above example can be rewritten using get_or_create() like so:
+```
+obj, created = Person.objects.get_or_create(
+    first_name='John',
+    last_name='Lennon',
+    defaults={'birthday': date(1940, 10, 9)},
+)
+```
