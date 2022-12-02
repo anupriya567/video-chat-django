@@ -159,3 +159,60 @@ obj, created = Person.objects.get_or_create(
     defaults={'birthday': date(1940, 10, 9)},
 )
 ```
+### 9). Storing Member in Database 
+
+> (making post request using fetch api js)
+```
+let createMember = async () => {
+    let response = await fetch('/create_member/', {
+        method:'POST',
+        headers: {
+            'Content-Type':'application/json'
+        },
+        body:JSON.stringify({'name':NAME, 'room_name':CHANNEL, 'UID':UID})
+    })
+    let member = await response.json()
+    return member
+}
+```
+</br>
+--> views.py
+
+> as we are sending data through post request, we have to use csrf_token but we have'nt used so using  @csrf_exempt
+
+```
+@csrf_exempt
+def createMember(request):
+    data = json.loads(request.body)
+    member, created = RoomMember.objects.get_or_create(
+        name=data['name'],
+        uid=data['UID'],
+        room_name=data['room_name']
+    )
+
+    return JsonResponse({'name':data['name']}, safe=False)
+
+```
+
+> (making get request)
+
+```
+let getMember = async (user) => {
+    let response = await fetch(`/get_member/?UID=${user.uid}&room_name=${CHANNEL}`)
+    let member = await response.json()
+    return member
+}
+```
+
+```
+def getMember(request):
+    uid = request.GET.get('UID')
+    room_name = request.GET.get('room_name')
+
+    member = RoomMember.objects.get(
+        uid=uid,
+        room_name=room_name,
+    )
+    name = member.name
+    return JsonResponse({'name':member.name}, safe=False)
+```
