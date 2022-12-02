@@ -137,6 +137,7 @@ let handleUserLeft = async(user) =>{
 
 
 ### 8). get_or_create()
+(QuerySet API reference)[https://docs.djangoproject.com/en/4.1/ref/models/querysets/]
 
 
 > Returns a tuple of (object, created), where object is the retrieved or created object and created is a boolean specifying whether a new object was created.</br>
