@@ -257,7 +257,9 @@ def getMember(request):
 >> Other user RIYA has entered same room MAIN
 
 ![Screenshot (24)](https://user-images.githubusercontent.com/72871727/205433024-03c57931-bec8-4b55-8862-4f6bfded1da5.jpg)
+
 </br>
+
 ![Screenshot (22)](https://user-images.githubusercontent.com/72871727/205432937-c89c08da-2890-4189-8ed1-b2345223e34d.jpg)
 </br>
 </br>
@@ -265,5 +267,6 @@ def getMember(request):
 
 ![Screenshot (25)](https://user-images.githubusercontent.com/72871727/205433022-fed343fd-e10f-4183-b5b2-393b84851f93.jpg)
 </br>
+
 ![Screenshot (23)](https://user-images.githubusercontent.com/72871727/205432941-eb99428a-2998-4e48-839f-5c686cf7bed3.jpg)
 
